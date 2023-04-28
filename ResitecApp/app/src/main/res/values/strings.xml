@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Resitec</string>
+    <string name="correo">Ingrese correo</string>
+    <string name="password">Contraseña</string>
+    <string name="requerido">Requerido</string>
+    <string name="usuario">Humberto</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+</resources>
