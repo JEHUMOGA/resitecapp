@@ -1,8 +1,22 @@
 package com.example.resitecapp.objects;
 
 public class Asesor {
+    private String correo;
     private String nombre;
-    private String apellidoPat;
-    private String apellidoMat;
-    private String Carrera;
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 }

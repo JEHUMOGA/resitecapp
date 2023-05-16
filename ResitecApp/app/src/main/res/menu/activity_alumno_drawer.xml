@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group>
-        <item android:id="@+id/nav_item_one"
-            android:icon="@drawable/abc_vector_test"
-            android:title="Item 1"
-            />
-        <item android:id="@+id/nav_item_two"
-            android:icon="@drawable/abc_vector_test"
-            android:title="Item 2"
-            />
-        <item android:id="@+id/nav_item_three"
-            android:icon="@drawable/abc_vector_test"
-            android:title="Item 3"
-            />
-    </group>
-    <item android:title="Title 1">
+    <item android:title="Alumno">
         <menu>
-            <item android:id="@+id/nav_item_six"
+            <item android:id="@+id/nav_item_inicio"
                 android:icon="@drawable/abc_vector_test"
-                android:title="Item 1"/>
-            <item android:id="@+id/nav_item_seven"
+                android:title="Inicio"
+                />
+            <item android:id="@+id/nav_item_proyecto"
                 android:icon="@drawable/abc_vector_test"
-                android:title="Item 2"/>
+                android:title="Dictamen Proyecto"
+                />
+            <item android:id="@+id/nav_item_documentos"
+                android:icon="@drawable/abc_vector_test"
+                android:title="Documentos"
+                />
         </menu>
     </item>
+    <item android:title="Administrador">
+        <menu>
+            <item android:id="@+id/nav_admin_grupos"
+                android:icon="@drawable/groups_fill0_wght400_grad0_opsz48"
+                android:title="Administrar Grupos"
+                />
+            <item android:id="@+id/nav_admin_alumnos"
+                android:icon="@drawable/abc_vector_test"
+                android:title="Administrar Alumnos"
+                />
+        </menu>
+    </item>
+
 </menu>

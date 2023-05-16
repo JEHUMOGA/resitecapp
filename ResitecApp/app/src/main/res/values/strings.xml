@@ -3,7 +3,12 @@
     <string name="correo">Ingrese correo</string>
     <string name="password">Contraseña</string>
     <string name="requerido">Requerido</string>
+    <string name="tituloUniversitario">Iniciando con LIC. C. Dr. Ing.</string>
+    <string name="personaQuienFirma">Persona que elaboro y firmo carta de aceptacion</string>
+    <string name="nombreProyecto">Debe ser igual a la carta de aceptacion</string>
     <string name="usuario">Humberto</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
+    <string name="tab_layout_description">Tab layout with multiple tabs for navigating between different sections of the app</string>
+
 </resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tituloProyecto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Titulo de Proyecto"
+        android:gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="35dp"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtAcronimo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acronimo"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tituloProyecto"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtAsesorInterno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Asesor Interno"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txtAcronimo"
+        />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtAlumnos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alumnos"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/txtAsesorInterno"
+        />
+
+
+</RelativeLayout>

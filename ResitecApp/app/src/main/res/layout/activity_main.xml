@@ -8,6 +8,15 @@
     android:paddingRight="16dp"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txvInicioSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INICIO DE SESION"
+        android:layout_marginTop="50dp"
+        android:layout_marginHorizontal="50dp"
+        />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/contendedorCorreo"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -15,8 +24,8 @@
         app:helperTextTextColor="@android:color/holo_red_dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/txvInicioSesion"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextCorreo"
@@ -25,6 +34,7 @@
             android:lines="1"
             android:inputType="textEmailAddress"
             android:hint="@string/correo"
+
             >
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -64,4 +74,36 @@
         android:layout_centerHorizontal="true"
         >
     </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Email"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/btnIngresar"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtNombreUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Nombre"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/txtEmail"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="Tipo"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@id/txtNombreUs"/>
+
 </RelativeLayout>

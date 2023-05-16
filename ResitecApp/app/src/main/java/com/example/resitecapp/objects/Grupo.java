@@ -1,25 +1,34 @@
 package com.example.resitecapp.objects;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.List;
 
-public class Grupo {
-    private int idGrupo;
-    private String nomProyecto;
-    private String acronimoProyecto;
+public class Grupo implements Serializable {
+
+    public Grupo(int id_proyecto, String acronimo, String titulo, List<Alumno> alumnos, Asesor asesor){
+        this.id_proyecto = id_proyecto;
+        this.acronimo = acronimo;
+        this.titulo = titulo;
+        this.alumnos = alumnos;
+        this.asesor = asesor;
+    }
+    private int id_proyecto;
+    private String acronimo;
+    private String titulo;
     private List<Alumno> alumnos;
-    private String asesorExt;
-    private Asesor asesorInterno;
+    private Asesor asesor;
 
     public String getNomProyecto() {
-        return nomProyecto;
+        return titulo;
     }
 
     public String getAcronimoProyecto() {
-        return acronimoProyecto;
+        return acronimo;
     }
 
     public void setAcronimoProyecto(String acronimoProyecto) {
-        this.acronimoProyecto = acronimoProyecto;
+        this.acronimo = acronimoProyecto;
     }
 
     public List<Alumno> getAlumnos() {
@@ -30,31 +39,24 @@ public class Grupo {
         this.alumnos = alumnos;
     }
 
-    public String getAsesorExt() {
-        return asesorExt;
+    public Asesor getAsesor() {
+        return asesor;
     }
 
-    public void setAsesorExt(String asesorExt) {
-        this.asesorExt = asesorExt;
+    public void setAsesor(Asesor asesor) {
+        this.asesor = asesor;
     }
 
-    public Asesor getAsesorInterno() {
-        return asesorInterno;
-    }
-
-    public void setAsesorInterno(Asesor asesorInterno) {
-        this.asesorInterno = asesorInterno;
-    }
 
     public void setNomProyecto(String nomProyecto) {
-        this.nomProyecto = nomProyecto;
+        this.titulo = nomProyecto;
     }
 
-    public int getIdGrupo() {
-        return idGrupo;
+    public int getIdProyecto() {
+        return id_proyecto;
     }
 
-    public void setIdGrupo(int idGrupo) {
-        this.idGrupo = idGrupo;
+    public void setIdProyecto(int id_proyecto) {
+        this.id_proyecto = id_proyecto;
     }
 }
