@@ -23,7 +23,7 @@
                 android:title="Administrar Grupos"
                 />
             <item android:id="@+id/nav_admin_alumnos"
-                android:icon="@drawable/abc_vector_test"
+                android:icon="@drawable/ic_alumno"
                 android:title="Administrar Alumnos"
                 />
         </menu>

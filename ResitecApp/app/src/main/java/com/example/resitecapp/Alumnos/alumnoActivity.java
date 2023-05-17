@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.example.resitecapp.MainActivity;
 import com.example.resitecapp.R;
 import com.example.resitecapp.administrador.AdministradorActivity;
+import com.example.resitecapp.administrador.AgregarGrupos;
 import com.google.android.material.navigation.NavigationView;
 
 public class alumnoActivity extends AppCompatActivity {
@@ -53,6 +54,9 @@ public class alumnoActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_admin_grupos:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new AdministradorActivity()).commit();
+                        break;
+                    case R.id.nav_admin_alumnos:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new AgregarGrupos()).commit();
                         break;
                 }
                 drawer.closeDrawer(GravityCompat.START);
