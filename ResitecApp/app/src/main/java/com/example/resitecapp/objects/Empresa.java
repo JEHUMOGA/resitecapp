@@ -11,8 +11,8 @@ public class Empresa {
     private String fax;
     private String telefono;
     private String telefonoExtension;
-    private String nombreTitular;
-    private String puestoTitular;
+    private String nombretitular;
+    private String puestotitular;
 
     public String getLugar() {
         return lugar;
@@ -95,18 +95,18 @@ public class Empresa {
     }
 
     public String getNombreTitular() {
-        return nombreTitular;
+        return nombretitular;
     }
 
     public void setNombreTitular(String nombreTitular) {
-        this.nombreTitular = nombreTitular;
+        this.nombretitular = nombreTitular;
     }
 
     public String getPuestoTitular() {
-        return puestoTitular;
+        return puestotitular;
     }
 
     public void setPuestoTitular(String puestoTitular) {
-        this.puestoTitular = puestoTitular;
+        this.puestotitular = puestoTitular;
     }
 }

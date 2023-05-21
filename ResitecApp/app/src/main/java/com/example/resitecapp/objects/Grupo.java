@@ -2,11 +2,12 @@ package com.example.resitecapp.objects;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grupo implements Serializable {
 
-    public Grupo(int id_proyecto, String acronimo, String titulo, List<Alumno> alumnos, Asesor asesor){
+    public Grupo(int id_proyecto, String acronimo, String titulo, ArrayList<Alumno> alumnos, Asesor asesor){
         this.id_proyecto = id_proyecto;
         this.acronimo = acronimo;
         this.titulo = titulo;
@@ -16,7 +17,7 @@ public class Grupo implements Serializable {
     private int id_proyecto;
     private String acronimo;
     private String titulo;
-    private List<Alumno> alumnos;
+    private ArrayList<Alumno> alumnos;
     private Asesor asesor;
 
     public String getNomProyecto() {
@@ -31,11 +32,11 @@ public class Grupo implements Serializable {
         this.acronimo = acronimoProyecto;
     }
 
-    public List<Alumno> getAlumnos() {
+    public ArrayList<Alumno> getAlumnos() {
         return alumnos;
     }
 
-    public void setAlumnos(List<Alumno> alumnos) {
+    public void setAlumnos(ArrayList<Alumno> alumnos) {
         this.alumnos = alumnos;
     }
 

@@ -1,15 +1,15 @@
 package com.example.resitecapp.objects;
 
 public class Asesor {
-    private String correo;
+    private String id;
     private String nombre;
 
     public String getCorreo() {
-        return correo;
+        return id;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCorreo(String id) {
+        this.id = id;
     }
 
     public String getNombre() {

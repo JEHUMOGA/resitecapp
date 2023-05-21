@@ -20,7 +20,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 
 public class AgregarGrupos extends Fragment {
-    Button btnAgregar;
+    Button btnAgregar, btnAsignar;
     TextInputEditText nombreEmpresa, rfcEmpresa, calleEmpresa, coloniaEmpresa, codigoPostalEmpresa;
     TextInputEditText ciudadEmpresa, faxEmpresa, telefenoEmpresa, nombreTitularEmpresa, telefonoTitularEmpresa;
     TextInputEditText nombreProyecto, nombreAsesorInterno, acronimoProyecto, nombreAsesorExterno, puestoAsesorExterno;
@@ -85,6 +85,14 @@ public class AgregarGrupos extends Fragment {
             @Override
             public void onClick(View view) {
                 expand(view, layoutAsesorExterno, detalleAsesorExterno);
+            }
+        });
+
+        btnAsignar = view.findViewById(R.id.btnAsignar);
+        btnAsignar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
 

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="administrador.AgregarGrupos"
     >
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tituloLayout"
         android:layout_width="match_parent"
@@ -418,6 +418,66 @@
                                     android:hint="Telefono de Asesor Externo"
                                     />
                             </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAsignarIntegrantes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="10dp">
+                <LinearLayout
+                    android:id="@+id/layoutAsignarIntegrantes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Asignar Integrantes"
+                        android:textSize="25sp"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:layout_marginVertical="15dp"/>
+                    <ScrollView
+                        android:id="@+id/detalleAsignarIntegrantes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:text="Alumnos: "/>
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/listAlumnos"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"/>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textSize="20sp"
+                                android:text="Asesor: "/>
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Asesor interno"/>
+
+                            <Button
+                                android:id="@+id/btnAsignar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Asignar"/>
                         </LinearLayout>
                     </ScrollView>
                 </LinearLayout>

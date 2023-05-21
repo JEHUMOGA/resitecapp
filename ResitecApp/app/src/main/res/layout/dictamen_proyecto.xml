@@ -19,7 +19,28 @@
         android:layout_alignParentTop="false"
         android:id="@+id/viewpager"/>
 
-    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+
+        android:background="@drawable/btn_circule_warning"
+        android:layout_margin="5dp"
+        >
+        <Button
+            android:id="@+id/btnAction"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/ic_edit_foreground"
+
+            android:contentDescription="Boton para editar o agregar dictamen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
 </RelativeLayout>

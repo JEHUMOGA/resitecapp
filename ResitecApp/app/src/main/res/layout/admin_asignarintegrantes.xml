@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/primary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="Alumnos:"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    />
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Alumnos seleccionados:"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaAlumnosSelect"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Seleccionar alumnos:"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    />
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchViewAlumno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    android:hint="Buscar alumno"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaAlumnos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Asesores: "
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Asesores seleccionados: "
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaAsesoresSelect"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"/>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Asesores: "
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaAsesores"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginHorizontal="30dp"/>
+
+                <Button
+                    android:id="@+id/btnCrear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textSize="25sp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/succes"
+                    android:text="Crear"/>
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+
+
+</RelativeLayout>

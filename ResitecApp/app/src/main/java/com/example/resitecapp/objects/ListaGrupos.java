@@ -4,15 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.resitecapp.R;
-import com.example.resitecapp.interfaces.RecyclerViewGrupo;
+import com.example.resitecapp.interfaces.RecyclerViewPosition;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
@@ -22,9 +20,9 @@ public class ListaGrupos extends RecyclerView.Adapter<ListaGrupos.ViewHolder> {
     private LayoutInflater inflater;
     private Context context;
     private OnItemClickListener listener;
-    private final RecyclerViewGrupo recyclerViewGrupo;
+    private final RecyclerViewPosition recyclerViewGrupo;
 
-    public ListaGrupos(List<Grupo> itemList, Context context, RecyclerViewGrupo recyclerViewGrupo){
+    public ListaGrupos(List<Grupo> itemList, Context context, RecyclerViewPosition recyclerViewGrupo){
         this.inflater = LayoutInflater.from(context);
         this.context = context;
         this.grupos = itemList;
@@ -61,7 +59,7 @@ public class ListaGrupos extends RecyclerView.Adapter<ListaGrupos.ViewHolder> {
         MaterialTextView txtAsesor;
         CardView cardView;
 
-        ViewHolder(View itemView, RecyclerViewGrupo recyclerViewGrupo){
+        ViewHolder(View itemView, RecyclerViewPosition recyclerViewGrupo){
             super(itemView);
             txtTituloProyecto = itemView.findViewById(R.id.txtTituloProyecto);
             txtAcronimo = itemView.findViewById(R.id.txtAcronimo);

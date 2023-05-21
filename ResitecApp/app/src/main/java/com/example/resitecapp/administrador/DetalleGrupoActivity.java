@@ -1,36 +1,36 @@
 package com.example.resitecapp.administrador;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.controller.GrupoController;
+import com.example.resitecapp.interfaces.CallbackSimple;
 import com.example.resitecapp.objects.Alumno;
-import com.example.resitecapp.objects.Asesor;
 import com.example.resitecapp.objects.Grupo;
-import com.example.resitecapp.services.MyApiService;
-import com.example.resitecapp.services.Url;
 import com.google.android.material.textview.MaterialTextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class DetalleGrupoActivity extends AppCompatActivity {
+public class DetalleGrupoActivity extends Fragment {
     //private Grupo grupo;
     MaterialTextView tituloProyecto;
     MaterialTextView txtAcronimo;
     MaterialTextView txtAsesorInterno;
     MaterialTextView txtAlumnos;
     int id;
-
+/*
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,41 +45,86 @@ public class DetalleGrupoActivity extends AppCompatActivity {
         //tituloProyecto.setText("ID Proyecto: " + id);
         getGrupo();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+    }*/
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        System.out.println("Entro Detalle");
+        return inflater.inflate(R.layout.detgrupo_administrador, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        System.out.println("Entro Activity");
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        AppCompatActivity activity = (AppCompatActivity) requireActivity();
+        activity.setSupportActionBar(toolbar);
+        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.popBackStack();
+            }
+        });
+
+        tituloProyecto = view.findViewById(R.id.tituloProyecto);
+        txtAcronimo = view.findViewById(R.id.txtAcronimo);
+        txtAsesorInterno = view.findViewById(R.id.txtAsesorInterno);
+        txtAlumnos = view.findViewById(R.id.txtAlumnos);
+
+        id = getArguments().getInt("id", 0);
+        getGrupo();
     }
 
     public void getGrupo(){
-        Retrofit retrofit=new Retrofit.Builder().baseUrl("http://192.168.100.9:8000/")
-                .addConverterFactory(GsonConverterFactory.create()).build();
-        MyApiService myApiService = retrofit.create(MyApiService.class);
-        Call<List<Grupo>> call = myApiService.getGrupo(id+"");
-        call.enqueue(new Callback<List<Grupo>>() {
+        System.out.println("getGrupo de DetalleGrupo");
+        GrupoController grupoController = new GrupoController();
+        grupoController.getGrupo(id, new CallbackSimple<Grupo>() {
+
 
             @Override
-            public void onResponse(Call<List<Grupo>> call, Response<List<Grupo>> response) {
-                try {
-                    if(response.isSuccessful()){
-                        List<Grupo> grup = response.body();
-                        Grupo grupo = grup.get(0);
-                        tituloProyecto.setText(grupo.getNomProyecto());
-                        txtAcronimo.setText(grupo.getAcronimoProyecto());
-                        txtAsesorInterno.setText(grupo.getAsesor().getNombre());
-                        List<Alumno> alumnos = grupo.getAlumnos();
-                        String aux = "";
-                        for(int i = 0; i< alumnos.size(); i++){
-                            aux+= alumnos.get(i).getNombre()+"\n";
-                        }
-                        txtAlumnos.setText(aux);
+            public void onSuccess(Grupo callback) {
+                Grupo grupo = callback;
+                tituloProyecto.setText(grupo.getNomProyecto());
+                txtAcronimo.setText(grupo.getAcronimoProyecto());
+                txtAsesorInterno.setText(grupo.getAsesor().getNombre());
 
-                    }
-                }catch (Exception ex){
-                    Toast.makeText(DetalleGrupoActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
+                System.out.println(grupo.getNomProyecto());
+                System.out.println(grupo.getAcronimoProyecto());
+                System.out.println(grupo.getAsesor().getNombre());
+                System.out.println("Alumnos");
+
+                List<Alumno> lista = grupo.getAlumnos();
+                String alumns = "";
+                for(Alumno alumno: lista){
+                    alumns+= alumno.getNombre() + "\n" + alumno.getCorreo() + "\n\n";
+                    System.out.println(alumns);
                 }
+                txtAlumnos.setText(alumns);
             }
 
             @Override
-            public void onFailure(Call<List<Grupo>> call, Throwable t) {
-                Toast.makeText(DetalleGrupoActivity.this, "Error de conexion " + t.toString(), Toast.LENGTH_SHORT).show();
+            public void onFailure(String mensaje) {
+                Toast.makeText(DetalleGrupoActivity.this.getContext(), mensaje, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            // Manejar evento de hacer clic en el botón de regreso
+            // Regresar a AdministradorActivity
+            FragmentManager fragmentManager = getParentFragmentManager();
+            fragmentManager.popBackStack();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,25 +1,23 @@
 package com.example.resitecapp.administrador;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.resitecapp.MainActivity;
 import com.example.resitecapp.R;
-import com.example.resitecapp.interfaces.RecyclerViewGrupo;
+import com.example.resitecapp.interfaces.RecyclerViewPosition;
 import com.example.resitecapp.objects.Grupo;
 import com.example.resitecapp.objects.ListaGrupos;
-import com.example.resitecapp.objects.Usuario;
 import com.example.resitecapp.services.MyApiService;
 import com.example.resitecapp.services.Url;
 
@@ -32,9 +30,12 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class AdministradorActivity extends Fragment implements RecyclerViewGrupo {
+public class AdministradorActivity extends Fragment implements RecyclerViewPosition {
     List<Grupo> grupos;
     View view;
+    private Button btnAgregar;
+
+    ViewGroup container;
 /*
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,13 +48,27 @@ public class AdministradorActivity extends Fragment implements RecyclerViewGrupo
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_administrador, container, false);
+        this.container = container;
+        return inflater.inflate(R.layout.activity_administrador, this.container, false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.view = view;
         grupos = new ArrayList<Grupo>();
+
+        btnAgregar = view.findViewById(R.id.btnAgregar);
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AsignarIntegrantes asignarIntegrantes = new AsignarIntegrantes();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.frameLayout, asignarIntegrantes)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         init();
     }
 
@@ -105,9 +120,23 @@ public class AdministradorActivity extends Fragment implements RecyclerViewGrupo
     public void onItemClick(int position) {
         int id = grupos.get(position).getIdProyecto();
         System.out.println("ID del proyecto: " + id);
-        Intent intent = new Intent(AdministradorActivity.this.getContext(), DetalleGrupoActivity.class);
+        /*Intent intent = new Intent(AdministradorActivity.this.getContext(), DetalleGrupoActivity.class);
         intent.putExtra("id", id);
         //intent.putExtra("")
-        startActivity(intent);
+        startActivity(intent);*/
+
+        DetalleGrupoActivity detalleGrupoFragment = new DetalleGrupoActivity();
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        detalleGrupoFragment.setArguments(args);
+
+        FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frameLayout, detalleGrupoFragment)
+                .addToBackStack(null)
+                .commit();
+
     }
+
+
 }

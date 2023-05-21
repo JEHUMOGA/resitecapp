@@ -1,5 +1,5 @@
 package com.example.resitecapp.interfaces;
 
-public interface RecyclerViewGrupo {
+public interface RecyclerViewPosition {
     void onItemClick(int position);
 }

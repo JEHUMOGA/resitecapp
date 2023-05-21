@@ -64,46 +64,15 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ingresar"
+        android:backgroundTint="@color/primary"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/contendedorPassword"
         android:layout_centerHorizontal="true"
-        >
-    </com.google.android.material.button.MaterialButton>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Email"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_below="@id/btnIngresar"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtNombreUs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Nombre"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_below="@id/txtEmail"/>
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtTipo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Tipo"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_below="@id/txtNombreUs"/>
+        />
 
 </RelativeLayout>

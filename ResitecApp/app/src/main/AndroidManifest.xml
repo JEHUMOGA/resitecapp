@@ -33,6 +33,12 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".administrador.DetalleGrupoActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Alumnos.AlumnoDicEmpresa"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Alumnos.AlumnoDictamen"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Alumnos.AlumnoDicProyecto"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
