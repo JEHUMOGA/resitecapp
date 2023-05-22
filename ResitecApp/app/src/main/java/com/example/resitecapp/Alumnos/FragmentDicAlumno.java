@@ -5,45 +5,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.resitecapp.R;
-import com.example.resitecapp.objects.AsesorExterno;
+import com.example.resitecapp.objects.Alumno;
+import com.example.resitecapp.objects.Empresa;
 import com.google.android.material.textview.MaterialTextView;
 
-public class FragmentDicTitular extends Fragment {
-
-    MaterialTextView txtNombre, txtPuesto, txtArea, txtEmail, txtTelefeno;
+public class FragmentDicAlumno extends Fragment {
+    MaterialTextView txtNombre, txtApePaterno, txtApeMat, txtNumeroControl, txtFechaNacimiento, txtCalle, txtColonia, txtCodigoPostal;
+    MaterialTextView txtCiudad, txtPais, txtNss, txtTipoSeguro, txtSexo, txtCorreoPersonal, txtTelefenoPersonal, txtTelefonoCasa, txtCorrioInstitucional;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.fragment_dictitular, container, false);
+        return inflater.inflate(R.layout.fragment_dicalumno, container, false);
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        txtNombre = view.findViewById(R.id.txtNombre);
-        txtPuesto = view.findViewById(R.id.txtPuesto);
-        txtArea = view.findViewById(R.id.txtArea);
-        txtEmail = view.findViewById(R.id.txtEmail);
-        txtTelefeno = view.findViewById(R.id.txtTelefono);
-
-        MostrarDatos();
-    }
-
-    private AsesorExterno asesorExterno;
-    public FragmentDicTitular(AsesorExterno asesorExterno){
-        this.asesorExterno = asesorExterno;
-
-        if(asesorExterno == null){
-            System.out.println("asesor externo es null");
+    private Alumno alumno;
+    public FragmentDicAlumno(Alumno alumno){
+        this.alumno = alumno;
+        if(this.alumno == null){
+            System.out.println("alumno es null");
         }
-        System.out.println("Datos del Asesor Externo");
-        //System.out.println("nombreAsesor: " + asesorExterno.getNombre());
-        //System.out.println("puesto: " + asesorExterno.getPuesto());
-        //System.out.println("area: " + asesorExterno.getArea());
+        System.out.println("Datos del Alumno");
+        System.out.println("numero de control: " + alumno.getNumerodecontrol());
+        System.out.println("nombre Alumno: " + alumno.getNombre());
+        System.out.println("apePaterno: " + alumno.getApePat());
+        System.out.println("apeMaterno: " + alumno.getApeMat());
+        System.out.println("correo Institucional: " + alumno.getCorreoInstitucional());
 
     }
 
@@ -70,6 +57,4 @@ public class FragmentDicTitular extends Fragment {
         txtTelefeno.setText(contenido);
 
     }
-
-
 }

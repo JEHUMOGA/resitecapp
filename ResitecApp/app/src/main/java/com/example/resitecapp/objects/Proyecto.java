@@ -1,17 +1,17 @@
 package com.example.resitecapp.objects;
 
 public class Proyecto {
-    private int empresaID;
+    private String empresaID;
     private String acronimo;
     private String titulo;
     private String tipo;
     private String realizacion;
 
-    public int getEmpresaID() {
+    public String getEmpresaID() {
         return empresaID;
     }
 
-    public void setEmpresaID(int empresaID) {
+    public void setEmpresaID(String empresaID) {
         this.empresaID = empresaID;
     }
 

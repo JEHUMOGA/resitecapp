@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +20,14 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.resitecapp.administrador.AsignarIntegrantes;
+import com.example.resitecapp.controller.DictamenController;
+import com.example.resitecapp.interfaces.CallbackSimple;
+import com.example.resitecapp.objects.Alumno;
+import com.example.resitecapp.objects.AsesorExterno;
+import com.example.resitecapp.objects.CorreoInstitucional;
+import com.example.resitecapp.objects.Dictamen;
+import com.example.resitecapp.objects.Empresa;
+import com.example.resitecapp.objects.Proyecto;
 import com.google.android.material.button.MaterialButton;
 
 import com.example.resitecapp.R;
@@ -29,6 +38,8 @@ public class dictamenProyecto extends Fragment {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     TabAdapter adapter;
+
+    private Dictamen dictamen;
     private Button btnAction;
 
     @Override
@@ -43,34 +54,58 @@ public class dictamenProyecto extends Fragment {
         return inflater.inflate(R.layout.dictamen_proyecto, container, false);
     }
 
+    public void obtenerDictamen(){
+        DictamenController dictamenController = new DictamenController();
+        CorreoInstitucional correoInstitucional = new CorreoInstitucional("17171436@itculiacan.edu.mx");
+
+        dictamenController.getDictamen(correoInstitucional, new CallbackSimple<Dictamen>() {
+            @Override
+            public void onSuccess(Dictamen callback) {
+                //dictamen = callback;
+                //asignaDictamen(callback);
+                FragmentManager fragmentManager = getChildFragmentManager();
+                adapter = new TabAdapter(fragmentManager, getLifecycle(), callback);
+                viewPager2.setAdapter(adapter);
+
+                btnAction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Context context = getContext();
+                        Intent intent = new Intent(context, AlumnoDictamen.class);
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(String mensaje) {
+                Toast.makeText(dictamenProyecto.this.getContext(), mensaje, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    public void asignaDictamen(Dictamen dictamen){
+        this.dictamen = dictamen;
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         tabLayout = view.findViewById(R.id.tab_layout);
         viewPager2 = view.findViewById(R.id.viewpager);
-        FragmentManager fragmentManager = getChildFragmentManager();
-        adapter = new TabAdapter(fragmentManager, getLifecycle());
-        viewPager2.setAdapter(adapter);
-
-        tabLayout.addTab(tabLayout.newTab().setText("Empresa"));
-        tabLayout.addTab(tabLayout.newTab().setText("Titulares"));
-        tabLayout.addTab(tabLayout.newTab().setText("Proyecto"));
 
         btnAction = view.findViewById(R.id.btnAction);
-        btnAction.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*AlumnoDictamen alumnoDictamen = new AlumnoDictamen();
-                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, alumnoDictamen)
-                        .addToBackStack(null)
-                        .commit();*/
-                Context context = getContext();
-                Intent intent = new Intent(context, AlumnoDictamen.class);
-                startActivity(intent);
-            }
-        });
+
+        obtenerDictamen();
+        if(dictamen == null){
+            System.out.println("Dictamen nulo");
+        }
+
+
+        tabLayout.addTab(tabLayout.newTab().setText("Empresa"));
+        tabLayout.addTab(tabLayout.newTab().setText("Asesor"));
+        tabLayout.addTab(tabLayout.newTab().setText("Proyecto"));
+        tabLayout.addTab(tabLayout.newTab().setText("Alumno"));
+
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -95,5 +130,6 @@ public class dictamenProyecto extends Fragment {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
+
     }
 }

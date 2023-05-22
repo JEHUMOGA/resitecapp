@@ -1,12 +1,13 @@
 package com.example.resitecapp.objects;
 
 public class Empresa {
+    private  String idEmpresa;
     private String lugar;
     private String rfc;
     private String giro;
     private String domicilio;
     private String Colonia;
-    private int codigoPostal;
+    private String codigoPostal;
     private String ciudad;
     private String fax;
     private String telefono;
@@ -14,6 +15,9 @@ public class Empresa {
     private String nombretitular;
     private String puestotitular;
 
+    public String getIdEmpresa() {
+        return idEmpresa;
+    }
     public String getLugar() {
         return lugar;
     }
@@ -54,11 +58,11 @@ public class Empresa {
         Colonia = colonia;
     }
 
-    public int getCodigoPostal() {
+    public String getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(int codigoPostal) {
+    public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
 

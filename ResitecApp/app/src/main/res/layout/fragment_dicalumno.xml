@@ -8,7 +8,7 @@
         android:textSize="35sp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:text="Datos de la Empresa"
+        android:text="Datos del Alumno"
         android:layout_marginTop="25dp"
         android:gravity="center"
         android:id="@+id/titulo"
@@ -25,26 +25,42 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtLugar"
+                android:id="@+id/txtNumeroControl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lugar de la empresa"
+                android:text="Numero de control de alumno"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtRfc"
+                android:id="@+id/txtNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="RFC de la empresa"
+                android:text="Nombre"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtGiro"
+                android:id="@+id/txtApePat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Giro de la empresa"
+                android:text="Apellido paterno"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtApeMat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Apellido Materno"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtFechaNacimineto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fecha de nacimiento"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
@@ -52,7 +68,7 @@
                 android:id="@+id/txtCalle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Calle de la empresa"
+                android:text="Calle"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
@@ -60,15 +76,7 @@
                 android:id="@+id/txtColonia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Colonia de la empresa"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_marginVertical="10dp"/>
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtCodigoPostal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Codigo Postal de la empresa"
+                android:text="Colonia"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
@@ -76,50 +84,76 @@
                 android:id="@+id/txtCiudad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ciudad de la empresa"
+                android:text="Ciudad"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtFax"
+                android:id="@+id/txtPais"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fax de la empresa"
+                android:text="País"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTelefono"
+                android:id="@+id/txtNSS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Telefono de la empresa"
+                android:text="Numero de seguro social"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtTelefonoExt"
+                android:id="@+id/txtTipoSeguro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Extension del telefono de la empresa"
+                android:text="Tipo de seguro"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtNombreTitular"
+                android:id="@+id/txtSexo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre del titular de la empresa"
+                android:text="Sexo"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtPuestoTitular"
+                android:id="@+id/txtCorreoPersonal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Puesto del titular de la empresa"
+                android:text="Correo Personal"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTelefonoPersonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefono Personal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTelefonoCasa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefono en casa"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtCorreoInstitucional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo Institucional"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

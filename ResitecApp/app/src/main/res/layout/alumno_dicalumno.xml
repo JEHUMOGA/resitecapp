@@ -40,17 +40,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginTop="25dp"
-                    android:gravity="center"
-                    android:text="Asesor Externo"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textlayout3"
-                    app:helperText="@string/tituloUniversitario"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
@@ -58,12 +49,12 @@
                     android:layout_below="@+id/textlayout2"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtNombreAsesorExt"
+                        android:id="@+id/txtNombreEstudiante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Nombre de Asesor Externo"
+                        android:hint="Nombre de estudiante"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -75,12 +66,15 @@
                     android:layout_below="@+id/textlayout3"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtPuestoExterno"
+                        android:id="@+id/txtNacimientoEstudiante"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Puesto"
+                        android:hint="Fecha de Nacimiento"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:clickable="true"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
@@ -92,34 +86,16 @@
                     android:layout_below="@+id/textlayout4"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtArea"
+                        android:id="@+id/txtNoControl"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Area"
+                        android:hint="Numero de Control"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textlayout6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginVertical="6dp"
-                    android:layout_below="@+id/textlayout4"
-                    >
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCorreoAsesorExt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="6dp"
-                        android:textSize="20sp"
-                        android:inputType="textEmailAddress"
-                        android:hint="e-mail"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textlayout7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"

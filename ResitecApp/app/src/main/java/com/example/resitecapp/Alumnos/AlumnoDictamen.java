@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.objects.AsesorExterno;
 
 public class AlumnoDictamen extends AppCompatActivity {
     /*
@@ -56,6 +57,15 @@ public class AlumnoDictamen extends AppCompatActivity {
             public void onClick(View view) {
                 Context context = view.getContext();
                 Intent intent = new Intent(context, AlumnoDicProyecto.class);
+                startActivity(intent);
+            }
+        });
+
+        cardAsesores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, AsesorExterno.class);
                 startActivity(intent);
             }
         });
