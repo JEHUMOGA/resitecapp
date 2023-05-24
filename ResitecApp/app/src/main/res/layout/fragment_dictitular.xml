@@ -17,10 +17,12 @@
         android:id="@+id/titulo"/>
 
     <ScrollView
+        android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titulo"
-        android:layout_marginHorizontal="35dp">
+        android:layout_marginHorizontal="35dp"
+        android:visibility="gone">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

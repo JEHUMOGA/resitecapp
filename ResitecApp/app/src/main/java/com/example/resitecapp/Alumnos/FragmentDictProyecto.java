@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.objects.AsesorExterno;
+import com.example.resitecapp.objects.DictamenSingleton;
 import com.example.resitecapp.objects.Proyecto;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
@@ -22,6 +25,9 @@ public class FragmentDictProyecto extends Fragment{
 
     MaterialTextView txtTitulo, txtAcronimo, txtTipo, txtRealizacion;
 
+    MaterialTextView titulo;
+    private ScrollView info;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
 
@@ -31,14 +37,6 @@ public class FragmentDictProyecto extends Fragment{
     private Proyecto proyecto;
     public FragmentDictProyecto(Proyecto proyecto){
         this.proyecto = proyecto;
-        if(this.proyecto == null){
-            System.out.println("proyecto es null");
-        }
-
-        System.out.println("Datos del Proyecto");
-        System.out.println("idProyecto: " + proyecto.getEmpresaID());
-        System.out.println("acronimo: " + proyecto.getAcronimo());
-        System.out.println("titulo: " + proyecto.getTitulo());
 
     }
 
@@ -47,6 +45,12 @@ public class FragmentDictProyecto extends Fragment{
     public void MostrarDatos(){
         mensajeVacio = "Falta agregar";
         String contenido = null;
+
+        if(this.proyecto == null){
+            titulo.setText("Sin datos de Proyecto");
+            return;
+        }
+        info.setVisibility(View.VISIBLE);
 
         contenido = "Titulo: ";
         contenido += (proyecto.getTitulo() == null || proyecto.getTitulo().equals(""))?  mensajeVacio:  proyecto.getTitulo();
@@ -66,34 +70,32 @@ public class FragmentDictProyecto extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(DictamenSingleton.getInstance().getDictamen() == null) {
+            this.proyecto = new Proyecto();
+        }else {
+            this.proyecto = DictamenSingleton.getInstance().getDictamen().getProyecto();
+        }
         txtTitulo = view.findViewById(R.id.txtTitulo);
         txtAcronimo = view.findViewById(R.id.txtAcronimo);
         txtTipo = view.findViewById(R.id.txtTipo);
         txtRealizacion = view.findViewById(R.id.txtRealizacion);
-
+        titulo = view.findViewById(R.id.titulo);
+        info = view.findViewById(R.id.info);
         MostrarDatos();
         /*fechaNacimiento = view.findViewById(R.id.txtNacimientoEstudiante);
         fechaNacimiento.setOnClickListener(this);*/
     }
 
-/*
     @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.txtNacimientoEstudiante:
-                showDatePickerDialog();
-                break;
-        }
+    public void onResume() {
+        super.onResume();
+        actualizarProyecto();
     }
 
-    private void showDatePickerDialog(){
-        DatePickerFragment newDatePicker = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                final String selectedDate = day+" / " + (month+1) + " / " + year;
-                fechaNacimiento.setText(selectedDate);
-            }
-        });
-        newDatePicker.show(getActivity().getSupportFragmentManager(),"datePicker");
-    }*/
+    public void actualizarProyecto() {
+        if(DictamenSingleton.getInstance().getDictamen() == null)
+            return;
+        this.proyecto = DictamenSingleton.getInstance().getDictamen().getProyecto();
+        MostrarDatos();
+    }
 }

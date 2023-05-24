@@ -41,7 +41,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textlayout3"
+                    android:id="@+id/textlayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
@@ -57,6 +57,41 @@
                         android:hint="Nombre de estudiante"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout2"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtApePat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Apellido Paterno"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout2"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtApeMat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Apellido Materno"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textlayout4"
                     android:layout_width="match_parent"
@@ -94,25 +129,206 @@
                         android:hint="Numero de Control"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="Domicilio"/>
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/textlayout6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginVertical="6dp"
-                    android:layout_below="@+id/textlayout5"
+                    android:layout_below="@+id/textlayout4"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCelular"
+                        android:id="@+id/txtCalle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Numero de Celular"
+                        android:hint="Calle y numero"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtColonia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Colonia"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCodigoPostal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Codigo Postal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCiudad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Ciudad"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textlayout10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtPais"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="País"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    android:layout_below="@+id/textlayout4"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtNumeroSeguroSocial"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Numero de seguro social"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTipoSeguro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Tipo de seguro"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtSexo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Sexo"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCorreoPersonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Correo Personal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTelefonoPersonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Telefono Personal"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTelefonoCasa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Telefono de casa"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCorreoInstuticional"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="6dp"
+                        android:textSize="20sp"
+                        android:hint="Correo Institucional"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
                 <Button
-                    android:id="@+id/btnGuardar"
+                    android:id="@+id/btnTerminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -120,7 +336,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:textSize="20sp"
-                    android:text="Guardar"/>
+                    android:text="Terminar"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

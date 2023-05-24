@@ -26,6 +26,7 @@ import com.example.resitecapp.objects.Alumno;
 import com.example.resitecapp.objects.AsesorExterno;
 import com.example.resitecapp.objects.CorreoInstitucional;
 import com.example.resitecapp.objects.Dictamen;
+import com.example.resitecapp.objects.DictamenSingleton;
 import com.example.resitecapp.objects.Empresa;
 import com.example.resitecapp.objects.Proyecto;
 import com.google.android.material.button.MaterialButton;
@@ -64,6 +65,7 @@ public class dictamenProyecto extends Fragment {
                 //dictamen = callback;
                 //asignaDictamen(callback);
                 FragmentManager fragmentManager = getChildFragmentManager();
+                DictamenSingleton.getInstance().setDictamen(callback);
                 adapter = new TabAdapter(fragmentManager, getLifecycle(), callback);
                 viewPager2.setAdapter(adapter);
 
@@ -83,9 +85,6 @@ public class dictamenProyecto extends Fragment {
             }
         });
     }
-    public void asignaDictamen(Dictamen dictamen){
-        this.dictamen = dictamen;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -96,6 +95,7 @@ public class dictamenProyecto extends Fragment {
         btnAction = view.findViewById(R.id.btnAction);
 
         obtenerDictamen();
+        dictamen = DictamenSingleton.getInstance().getDictamen();
         if(dictamen == null){
             System.out.println("Dictamen nulo");
         }
@@ -110,6 +110,8 @@ public class dictamenProyecto extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+                System.out.println("Selecciona tab");
+
                 viewPager2.setCurrentItem(tab.getPosition());
             }
 

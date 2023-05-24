@@ -39,6 +39,10 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".Alumnos.AlumnoDicProyecto"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Alumnos.AlumnoDicAsesorExterno"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Alumnos.AlumnoDicAlumno"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

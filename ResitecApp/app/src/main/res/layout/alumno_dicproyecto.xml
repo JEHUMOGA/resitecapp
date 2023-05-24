@@ -48,7 +48,7 @@
                     android:layout_marginVertical="6dp"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtnombreProyecto"
+                        android:id="@+id/txtTitulo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="2dp"
@@ -66,15 +66,15 @@
                     android:layout_below="@+id/textlayout1"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtNombreAsesorInt"
+                        android:id="@+id/txtAcronimo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Asesor Interno"
+                        android:hint="Acronimo"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textview.MaterialTextView
+                <!--<com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
@@ -106,8 +106,48 @@
                         android:text="Equipo"
                         android:onClick="onCheckboxClicked"
                         />
-                </LinearLayout>
-
+                </LinearLayout>-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtRealizacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="2dp"
+                    android:textSize="20sp"
+                    android:hint="Realizacion"
+                    />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="6dp"
+                    >
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtTipo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="2dp"
+                        android:textSize="20sp"
+                        android:hint="Tipo de proyecto"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                    android:id="@+id/btnTerminar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:backgroundTint="@color/succes"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:text="Terminar"/>
             </LinearLayout>
         </ScrollView>
     </androidx.appcompat.widget.LinearLayoutCompat>

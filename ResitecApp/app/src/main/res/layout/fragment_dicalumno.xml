@@ -15,10 +15,12 @@
         android:layout_marginBottom="30dp"/>
 
     <ScrollView
+        android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titulo"
         android:layout_marginHorizontal="35dp"
+        android:visibility="gone"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -77,6 +79,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Colonia"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_marginVertical="10dp"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtCodigoPostal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Codigo Postal"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>

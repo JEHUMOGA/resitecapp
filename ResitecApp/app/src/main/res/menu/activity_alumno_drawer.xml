@@ -2,17 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Alumno">
         <menu>
-            <item android:id="@+id/nav_item_inicio"
-                android:icon="@drawable/abc_vector_test"
-                android:title="Inicio"
-                />
             <item android:id="@+id/nav_item_proyecto"
                 android:icon="@drawable/abc_vector_test"
                 android:title="Dictamen Proyecto"
-                />
-            <item android:id="@+id/nav_item_documentos"
-                android:icon="@drawable/abc_vector_test"
-                android:title="Documentos"
                 />
         </menu>
     </item>
@@ -22,10 +14,10 @@
                 android:icon="@drawable/groups_fill0_wght400_grad0_opsz48"
                 android:title="Administrar Grupos"
                 />
-            <item android:id="@+id/nav_admin_alumnos"
+            <!--<item android:id="@+id/nav_admin_alumnos"
                 android:icon="@drawable/ic_alumno"
                 android:title="Administrar Alumnos"
-                />
+                />-->
         </menu>
     </item>
 

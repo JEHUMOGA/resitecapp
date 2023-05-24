@@ -4,18 +4,24 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.objects.Alumno;
 import com.example.resitecapp.objects.AsesorExterno;
+import com.example.resitecapp.objects.DictamenSingleton;
 import com.google.android.material.textview.MaterialTextView;
 
 public class FragmentDicTitular extends Fragment {
 
     MaterialTextView txtNombre, txtPuesto, txtArea, txtEmail, txtTelefeno;
+
+    MaterialTextView titulo;
+    private ScrollView info;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         return inflater.inflate(R.layout.fragment_dictitular, container, false);
@@ -24,12 +30,19 @@ public class FragmentDicTitular extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(DictamenSingleton.getInstance().getDictamen() == null) {
+            this.asesorExterno = new AsesorExterno();
+        }else {
+            this.asesorExterno = DictamenSingleton.getInstance().getDictamen().getAsesorExterno();
+        }
         txtNombre = view.findViewById(R.id.txtNombre);
         txtPuesto = view.findViewById(R.id.txtPuesto);
         txtArea = view.findViewById(R.id.txtArea);
         txtEmail = view.findViewById(R.id.txtEmail);
         txtTelefeno = view.findViewById(R.id.txtTelefono);
 
+        titulo = view.findViewById(R.id.titulo);
+        info = view.findViewById(R.id.info);
         MostrarDatos();
     }
 
@@ -37,13 +50,6 @@ public class FragmentDicTitular extends Fragment {
     public FragmentDicTitular(AsesorExterno asesorExterno){
         this.asesorExterno = asesorExterno;
 
-        if(asesorExterno == null){
-            System.out.println("asesor externo es null");
-        }
-        System.out.println("Datos del Asesor Externo");
-        //System.out.println("nombreAsesor: " + asesorExterno.getNombre());
-        //System.out.println("puesto: " + asesorExterno.getPuesto());
-        //System.out.println("area: " + asesorExterno.getArea());
 
     }
 
@@ -52,6 +58,12 @@ public class FragmentDicTitular extends Fragment {
     public void MostrarDatos(){
         mensajeVacio = "Falta agregar";
         String contenido = null;
+
+        if(this.asesorExterno == null){
+            titulo.setText("Sin datos del Asesor Externo");
+            return;
+        }
+        info.setVisibility(View.VISIBLE);
 
         contenido = "Nombre: ";
         contenido += (asesorExterno.getNombre() == null || asesorExterno.getNombre().equals(""))?  mensajeVacio:  asesorExterno.getNombre();
@@ -70,6 +82,17 @@ public class FragmentDicTitular extends Fragment {
         txtTelefeno.setText(contenido);
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        actualizarAsesorExt();
+    }
 
+    public void actualizarAsesorExt() {
+        if(DictamenSingleton.getInstance().getDictamen() == null)
+            return;
+        this.asesorExterno = DictamenSingleton.getInstance().getDictamen().getAsesorExterno();
+        MostrarDatos();
+    }
 
 }

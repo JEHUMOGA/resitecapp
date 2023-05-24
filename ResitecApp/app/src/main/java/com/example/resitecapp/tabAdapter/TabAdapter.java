@@ -26,7 +26,6 @@ public class TabAdapter extends FragmentStateAdapter {
     public TabAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle, Dictamen dictamen) {
         super(fragmentManager, lifecycle);
         this.dictamen = dictamen;
-        imprimirDatos(dictamen);
     }
 
     @NonNull
@@ -34,15 +33,19 @@ public class TabAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 1: {
+                System.out.println("Entro Asesor");
                 return new FragmentDicTitular(asesorExterno);
             }
             case 2: {
+                System.out.println("Entro Proyecto");
                 return new FragmentDictProyecto(proyecto);
             }
             case 3: {
+                System.out.println("Entro Alumno");
                 return new FragmentDicAlumno(alumno);
             }
         }
+        System.out.println("Entro Empresa");
         return new FragmentDictEmpresa(empresa);
     }
 
@@ -51,19 +54,4 @@ public class TabAdapter extends FragmentStateAdapter {
         return 4;
     }
 
-    public void imprimirDatos(Dictamen dictamen){
-
-
-        if(dictamen.getAlumno() == null){
-            System.out.println("alumno es null");
-        }
-        empresa = dictamen.getEmpresa();
-        proyecto = dictamen.getProyecto();
-        asesorExterno = dictamen.getAsesorExterno();
-        alumno = dictamen.getAlumno();
-
-
-
-
-    }
 }

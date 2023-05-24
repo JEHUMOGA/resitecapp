@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.objects.Alumno;
 import com.example.resitecapp.objects.AsesorExterno;
+import com.example.resitecapp.objects.Dictamen;
+import com.example.resitecapp.objects.DictamenSingleton;
+import com.example.resitecapp.objects.Empresa;
+import com.example.resitecapp.objects.Proyecto;
 
 public class AlumnoDictamen extends AppCompatActivity {
     /*
@@ -28,6 +34,14 @@ public class AlumnoDictamen extends AppCompatActivity {
         return view;
     }
 */
+    private Dictamen dictamen;
+
+    private Alumno alumno;
+    private Empresa empresa;
+    private Proyecto proyecto;
+    private AsesorExterno asesorExterno;
+
+    private Button btnGuardar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +57,10 @@ public class AlumnoDictamen extends AppCompatActivity {
         cardProyecto = findViewById(R.id.cardProyecto);
         cardAsesores = findViewById(R.id.cardAsesores);
         cardAlumno = findViewById(R.id.cardAlumno);
+
+        dictamen = DictamenSingleton.getInstance().getDictamen();
+        btnGuardar = findViewById(R.id.btnGuardar);
+
 
         cardEmpresa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +83,28 @@ public class AlumnoDictamen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Context context = view.getContext();
-                Intent intent = new Intent(context, AsesorExterno.class);
+                Intent intent = new Intent(context, AlumnoDicAsesorExterno.class);
                 startActivity(intent);
+            }
+        });
+        cardAlumno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = view.getContext();
+                Intent intent = new Intent(context, AlumnoDicAlumno.class);
+                startActivity(intent);
+            }
+        });
+
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                System.out.println("Correo Insitucional: " + dictamen.getAlumno().getCorreoInstitucional());
+                System.out.println("Nombre: " + dictamen.getAlumno().getNombre());
+                dictamen = DictamenSingleton.getInstance().getDictamen();
+
+                onBackPressed();
             }
         });
     }
@@ -76,6 +114,7 @@ public class AlumnoDictamen extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == android.R.id.home) {
+            DictamenSingleton.getInstance().setDictamen(dictamen);
             onBackPressed();
             return true;
         }

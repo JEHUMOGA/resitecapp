@@ -3,13 +3,13 @@ package com.example.resitecapp.objects;
 public class Dictamen {
     private Empresa empresa;
     private Proyecto proyecto;
-    private AsesorExterno asesorExterno;
+    private AsesorExterno asesorexterno;
     private Alumno alumno;
 
     public Dictamen(Empresa empresa, Proyecto proyecto, AsesorExterno asesorExterno, Alumno alumno){
         this.empresa = empresa;
         this.proyecto = proyecto;
-        this.asesorExterno = asesorExterno;
+        this.asesorexterno = asesorExterno;
         this.alumno = alumno;
     }
 
@@ -30,11 +30,11 @@ public class Dictamen {
     }
 
     public AsesorExterno getAsesorExterno() {
-        return asesorExterno;
+        return asesorexterno;
     }
 
     public void setAsesorExterno(AsesorExterno asesorExterno) {
-        this.asesorExterno = asesorExterno;
+        this.asesorexterno = asesorExterno;
     }
 
     public Alumno getAlumno() {

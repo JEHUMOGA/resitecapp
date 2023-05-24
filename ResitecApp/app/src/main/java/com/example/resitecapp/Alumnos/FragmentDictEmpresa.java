@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.objects.DictamenSingleton;
 import com.example.resitecapp.objects.Empresa;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -22,9 +24,13 @@ public class FragmentDictEmpresa extends Fragment {
     String mensajeVacio;
     MaterialTextView txtLugar, txtRfc, txtGiro, txtCalle, txtColonia, txtCodigoPostal, txtCiudad, txtFax;
     MaterialTextView txtTelefono, txtTelefonoExt, txtNombre, txtPuesto;
+
+    MaterialTextView titulo;
     private Empresa empresa;
+    ScrollView info;
     public FragmentDictEmpresa(Empresa empresa){
         this.empresa = empresa;
+        /*
         if(this.empresa == null){
             System.out.println("empresa es null");
         }
@@ -32,7 +38,7 @@ public class FragmentDictEmpresa extends Fragment {
         System.out.println("lugar: " + empresa.getLugar());
         System.out.println("rfc: " + empresa.getRfc());
         System.out.println("giro: " + empresa.getGiro());
-        System.out.println("domicilio: " + empresa.getDomicilio());
+        System.out.println("domicilio: " + empresa.getDomicilio());*/
 
 
     }
@@ -40,6 +46,16 @@ public class FragmentDictEmpresa extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(DictamenSingleton.getInstance().getDictamen() == null) {
+            this.empresa = new Empresa();
+        }else {
+            this.empresa = DictamenSingleton.getInstance().getDictamen().getEmpresa();
+        }
+        titulo = view.findViewById(R.id.titulo);
+
+        titulo = view.findViewById(R.id.titulo);
+
         txtLugar = view.findViewById(R.id.txtLugar);
         txtRfc = view.findViewById(R.id.txtRfc);
         txtGiro = view.findViewById(R.id.txtGiro);
@@ -52,13 +68,19 @@ public class FragmentDictEmpresa extends Fragment {
         txtTelefonoExt = view.findViewById(R.id.txtTelefonoExt);
         txtNombre = view.findViewById(R.id.txtNombreTitular);
         txtPuesto = view.findViewById(R.id.txtPuestoTitular);
-
+        info = view.findViewById(R.id.info);
         MostrarDatos();
     }
 
     public void MostrarDatos(){
         mensajeVacio = "Falta agregar";
         String contenido = null;
+
+        if(this.empresa == null){
+            titulo.setText("Sin datos de Empresa");
+            return;
+        }
+        info.setVisibility(View.VISIBLE);
 
         contenido = "Lugar: ";
         contenido += (empresa.getLugar() == null || empresa.getLugar().equals(""))?  mensajeVacio:  empresa.getLugar();
@@ -97,5 +119,18 @@ public class FragmentDictEmpresa extends Fragment {
         contenido += (empresa.getPuestoTitular() == null || empresa.getPuestoTitular().equals(""))? mensajeVacio: empresa.getPuestoTitular();
         txtPuesto.setText(contenido);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        actualizarEmpresa();
+    }
+
+    public void actualizarEmpresa() {
+        if(DictamenSingleton.getInstance().getDictamen() == null)
+            return;
+        this.empresa = DictamenSingleton.getInstance().getDictamen().getEmpresa();
+        MostrarDatos();
     }
 }

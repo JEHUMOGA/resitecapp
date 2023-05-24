@@ -40,7 +40,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textlayout1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="15dp"
@@ -54,39 +53,7 @@
                         android:textSize="20sp"
                         android:hint="Nombre Empresa o Institucion"
                         />
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:layout_marginVertical="6dp"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:text="Tiene convenio con el ITCuliacan:"
-                        />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:orientation="horizontal">
-                        <com.google.android.material.checkbox.MaterialCheckBox
-                            android:id="@+id/checkSi"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="35dp"
-                            android:textSize="48dp"
-                            android:text="Si"
-                            android:onClick="onCheckboxClicked"
-                            />
-                        <com.google.android.material.checkbox.MaterialCheckBox
-                            android:id="@+id/checkNo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="25dp"
-                            android:textSize="48dp"
-                            android:text="No"
-                            android:onClick="onCheckboxClicked"
-                            />
-                    </LinearLayout>
+
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -234,7 +201,7 @@
                     android:layout_marginVertical="6dp"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtnombreTitular"
+                        android:id="@+id/txtNombreTitular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="2dp"
@@ -253,16 +220,17 @@
                     android:layout_below="@+id/textlayout1"
                     >
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtNombreQuienFirma"
+                        android:id="@+id/txtPuestoTitular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginVertical="6dp"
                         android:textSize="20sp"
-                        android:hint="Nombre quien firmara acuerdo"
+                        android:hint="Puesto del titular"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
+
                 <Button
-                    android:id="@+id/btnGuardar"
+                    android:id="@+id/btnTerminar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -270,7 +238,7 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="30dp"
                     android:textSize="20sp"
-                    android:text="Guardar"/>
+                    android:text="Terminar"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
