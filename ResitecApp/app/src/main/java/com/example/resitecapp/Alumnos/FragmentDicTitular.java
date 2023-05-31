@@ -31,8 +31,8 @@ public class FragmentDicTitular extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if(DictamenSingleton.getInstance().getDictamen() == null) {
-            this.asesorExterno = new AsesorExterno();
-        }else {
+            this.asesorExterno = null;
+        }else{
             this.asesorExterno = DictamenSingleton.getInstance().getDictamen().getAsesorExterno();
         }
         txtNombre = view.findViewById(R.id.txtNombre);

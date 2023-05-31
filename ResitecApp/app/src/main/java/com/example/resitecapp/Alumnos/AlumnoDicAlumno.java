@@ -70,13 +70,13 @@ public class AlumnoDicAlumno extends AppCompatActivity {
         AsignarValores(alumno.getNombre(), nombre);
         AsignarValores(alumno.getApePat(), apePat);
         AsignarValores(alumno.getApeMat(), apeMat);
-        AsignarValores(alumno.getNumerodecontrol(), numeroControl);
+        AsignarValores(alumno.getNumerodecontrol() +"", numeroControl);
         AsignarValores(alumno.getDomicilioCalle(), domicilioCalle);
         AsignarValores(alumno.getDomicilioColonia(), domicilioColonia);
-        AsignarValores(alumno.getDomicilioCp(), domicilioCp);
+        AsignarValores(alumno.getDomicilioCp() + "", domicilioCp);
         AsignarValores(alumno.getCiudad(), ciudad);
         AsignarValores(alumno.getPais(), pais);
-        AsignarValores(alumno.getNss(), numeroSeguroSocial);
+        AsignarValores(alumno.getNss() + "", numeroSeguroSocial);
         AsignarValores(alumno.getTipoSeguro(), tipoSeguro);
         AsignarValores(alumno.getSexo(), sexo);
         AsignarValores(alumno.getCorreoPersonal(), correoPersonal);
@@ -120,13 +120,13 @@ public class AlumnoDicAlumno extends AppCompatActivity {
         alumno.setNombre(nombre.getText().toString());
         alumno.setApePat(apePat.getText().toString());
         alumno.setApeMat(apeMat.getText().toString());
-        alumno.setNumerodecontrol(numeroControl.getText().toString());
+        alumno.setNumerodecontrol(Integer.parseInt(numeroControl.getText().toString()));
         alumno.setDomicilioCalle(domicilioCalle.getText().toString());
         alumno.setDomicilioColonia(domicilioColonia.getText().toString());
-        alumno.setDomicilioCp(domicilioCp.getText().toString());
+        alumno.setDomicilioCp(Integer.parseInt(domicilioCp.getText().toString()));
         alumno.setCiudad(ciudad.getText().toString());
         alumno.setPais(pais.getText().toString());
-        alumno.setNss(numeroSeguroSocial.getText().toString());
+        alumno.setNss(Integer.parseInt(numeroSeguroSocial.getText().toString()));
         alumno.setTipoSeguro(tipoSeguro.getText().toString());
         alumno.setSexo(sexo.getText().toString());
         alumno.setCorreoPersonal(correoPersonal.getText().toString());
@@ -143,8 +143,8 @@ public class AlumnoDicAlumno extends AppCompatActivity {
         DatePickerFragment newDatePicker = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                //final String selectedDate = day+" / " + (month+1) + " / " + year;
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                //final String selectedDate = year+" - " + (month+1) + " - " + day ;
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year, month, day);
                 String formatDate = simpleDateFormat.format(calendar.getTime());
@@ -169,7 +169,6 @@ public class AlumnoDicAlumno extends AppCompatActivity {
            return;
         }
         component.setText(info);
-        component.setEnabled(false);
     }
 
     @Override

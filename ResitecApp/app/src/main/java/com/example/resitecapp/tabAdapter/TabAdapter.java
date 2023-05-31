@@ -33,19 +33,15 @@ public class TabAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 1: {
-                System.out.println("Entro Asesor");
                 return new FragmentDicTitular(asesorExterno);
             }
             case 2: {
-                System.out.println("Entro Proyecto");
                 return new FragmentDictProyecto(proyecto);
             }
             case 3: {
-                System.out.println("Entro Alumno");
                 return new FragmentDicAlumno(alumno);
             }
         }
-        System.out.println("Entro Empresa");
         return new FragmentDictEmpresa(empresa);
     }
 

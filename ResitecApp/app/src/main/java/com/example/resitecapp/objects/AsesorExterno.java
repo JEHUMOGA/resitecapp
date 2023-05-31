@@ -1,11 +1,16 @@
 package com.example.resitecapp.objects;
 
 public class AsesorExterno {
+    private int id;
     private String nombre;
     private String puesto;
     private String area;
     private String email;
     private String telefono;
+
+    public int getId() {
+        return id;
+    }
 
     public String getNombre() {
         return nombre;

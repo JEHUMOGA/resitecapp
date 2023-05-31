@@ -40,29 +40,6 @@
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/contendedorPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        app:helperText="@string/requerido"
-        app:helperTextTextColor="@android:color/holo_red_dark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/contendedorCorreo"
-        app:passwordToggleEnabled="true"
-
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:lines="1"
-            android:inputType="textPassword"
-            android:hint="@string/password"
-            >
-
-        </com.google.android.material.textfield.TextInputEditText>
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnIngresar"
@@ -71,7 +48,7 @@
         android:text="Ingresar"
         android:backgroundTint="@color/primary"
         android:layout_marginTop="30dp"
-        android:layout_below="@+id/contendedorPassword"
+        android:layout_below="@+id/contendedorCorreo"
         android:layout_centerHorizontal="true"
         />
 

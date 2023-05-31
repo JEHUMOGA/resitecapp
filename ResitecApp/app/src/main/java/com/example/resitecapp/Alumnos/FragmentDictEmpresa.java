@@ -30,17 +30,6 @@ public class FragmentDictEmpresa extends Fragment {
     ScrollView info;
     public FragmentDictEmpresa(Empresa empresa){
         this.empresa = empresa;
-        /*
-        if(this.empresa == null){
-            System.out.println("empresa es null");
-        }
-        System.out.println("Datos de la empresa");
-        System.out.println("lugar: " + empresa.getLugar());
-        System.out.println("rfc: " + empresa.getRfc());
-        System.out.println("giro: " + empresa.getGiro());
-        System.out.println("domicilio: " + empresa.getDomicilio());*/
-
-
     }
 
     @Override
@@ -48,8 +37,8 @@ public class FragmentDictEmpresa extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         if(DictamenSingleton.getInstance().getDictamen() == null) {
-            this.empresa = new Empresa();
-        }else {
+            this.empresa = null;
+        }else{
             this.empresa = DictamenSingleton.getInstance().getDictamen().getEmpresa();
         }
         titulo = view.findViewById(R.id.titulo);
@@ -63,7 +52,6 @@ public class FragmentDictEmpresa extends Fragment {
         txtColonia = view.findViewById(R.id.txtColonia);
         txtCodigoPostal = view.findViewById(R.id.txtCodigoPostal);
         txtCiudad = view.findViewById(R.id.txtCiudad);
-        txtFax = view.findViewById(R.id.txtFax);
         txtTelefono = view.findViewById(R.id.txtTelefono);
         txtTelefonoExt = view.findViewById(R.id.txtTelefonoExt);
         txtNombre = view.findViewById(R.id.txtNombreTitular);
@@ -82,7 +70,7 @@ public class FragmentDictEmpresa extends Fragment {
         }
         info.setVisibility(View.VISIBLE);
 
-        contenido = "Lugar: ";
+        contenido = "Nombre de Empresa: ";
         contenido += (empresa.getLugar() == null || empresa.getLugar().equals(""))?  mensajeVacio:  empresa.getLugar();
         txtLugar.setText(contenido);
         contenido = "RFC: ";
@@ -90,9 +78,11 @@ public class FragmentDictEmpresa extends Fragment {
         txtRfc.setText(contenido);
         contenido = "Giro: ";
         contenido += (empresa.getGiro() == null || empresa.getGiro().equals(""))? mensajeVacio:  empresa.getGiro();
+        System.out.println("Giro: " + empresa.getGiro());
         txtGiro.setText(contenido);
         contenido = "Calle: ";
         contenido += (empresa.getDomicilio() == null || empresa.getDomicilio().equals(""))? mensajeVacio:  empresa.getDomicilio();
+        System.out.println("Domicilio: " + empresa.getDomicilio());
         txtCalle.setText(contenido);
         contenido = "Colonia: ";
         contenido += (empresa.getColonia() == null || empresa.getColonia().equals(""))? mensajeVacio: empresa.getColonia();
@@ -103,9 +93,6 @@ public class FragmentDictEmpresa extends Fragment {
         contenido = "Ciudad: ";
         contenido += (empresa.getCiudad() == null || empresa.getCiudad().equals(""))? mensajeVacio:  empresa.getCiudad();
         txtCiudad.setText(contenido);
-        contenido = "Fax: ";
-        contenido += (empresa.getFax() == null || empresa.getFax().equals(""))? mensajeVacio:  empresa.getFax();
-        txtFax.setText(contenido);
         contenido = "Telefono: ";
         contenido += (empresa.getTelefono() == null || empresa.getTelefono().equals(""))? mensajeVacio: empresa.getTelefono();
         txtTelefono.setText(contenido);

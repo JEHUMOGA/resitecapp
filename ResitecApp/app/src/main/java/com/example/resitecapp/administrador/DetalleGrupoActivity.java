@@ -24,31 +24,11 @@ import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 
 public class DetalleGrupoActivity extends Fragment {
-    //private Grupo grupo;
     MaterialTextView tituloProyecto;
     MaterialTextView txtAcronimo;
     MaterialTextView txtAsesorInterno;
     MaterialTextView txtAlumnos;
     int id;
-/*
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.detgrupo_administrador);
-        //grupo = (Grupo) getIntent().getSerializableExtra("grupo");
-        //System.out.println("Nombre del proyecto: " + grupo.getNomProyecto());
-        tituloProyecto = findViewById(R.id.tituloProyecto);
-        txtAcronimo = findViewById(R.id.txtAcronimo);
-        txtAsesorInterno = findViewById(R.id.txtAsesorInterno);
-        txtAlumnos = findViewById(R.id.txtAlumnos);
-        id = getIntent().getIntExtra("id", 0);
-        //tituloProyecto.setText("ID Proyecto: " + id);
-        getGrupo();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-    }*/
 
     @Nullable
     @Override
@@ -104,7 +84,7 @@ public class DetalleGrupoActivity extends Fragment {
                 List<Alumno> lista = grupo.getAlumnos();
                 String alumns = "";
                 for(Alumno alumno: lista){
-                    alumns+= alumno.getNombre() + "\n" + alumno.getCorreo() + "\n\n";
+                    alumns+= alumno.getNombre() + "\n" + alumno.getCorreoInstitucional() + "\n\n";
                     System.out.println(alumns);
                 }
                 txtAlumnos.setText(alumns);
@@ -119,8 +99,6 @@ public class DetalleGrupoActivity extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            // Manejar evento de hacer clic en el botón de regreso
-            // Regresar a AdministradorActivity
             FragmentManager fragmentManager = getParentFragmentManager();
             fragmentManager.popBackStack();
             return true;

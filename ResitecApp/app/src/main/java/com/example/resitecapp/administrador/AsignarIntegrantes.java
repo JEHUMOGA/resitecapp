@@ -213,7 +213,7 @@ public class AsignarIntegrantes extends Fragment{
 
         for(Alumno alumno: listaAlumnos){
             String nombre = alumno.getNombre().toLowerCase();
-            String correo = alumno.getCorreo().toLowerCase();
+            String correo = alumno.getCorreoInstitucional().toLowerCase();
             if(nombre.contains(query.toLowerCase()) || correo.contains(query.toLowerCase())){
                 listaFiltrada.add(alumno);
             }

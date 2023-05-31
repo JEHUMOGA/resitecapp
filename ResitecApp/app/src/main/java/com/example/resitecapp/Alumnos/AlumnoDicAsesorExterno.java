@@ -90,7 +90,6 @@ public class AlumnoDicAsesorExterno extends AppCompatActivity {
             return;
         }
         component.setText(info);
-        component.setEnabled(false);
     }
 
     @Override

@@ -38,21 +38,28 @@ public class alumnoActivity extends AppCompatActivity {
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(alumnoActivity.this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new dictamenProyecto()).commit();
+        dictamenProyecto alumnoDictamen = new dictamenProyecto();
+        Bundle bundle = new Bundle();
+        Intent intent = getIntent();
+        bundle.putString("correo", intent.getStringExtra("correo"));
+        alumnoDictamen.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,alumnoDictamen).commit();
         navigationView.setCheckedItem(R.id.nav_item_proyecto);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_item_proyecto:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new dictamenProyecto()).commit();
+                        dictamenProyecto alumnoDictamen = new dictamenProyecto();
+                        Bundle bundle = new Bundle();
+                        Intent intent = getIntent();
+                        bundle.putString("correo", intent.getStringExtra("correo"));
+                        alumnoDictamen.setArguments(bundle);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,alumnoDictamen).commit();
                         break;
                     case R.id.nav_admin_grupos:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new AdministradorActivity()).commit();
                         break;
-                    /*case R.id.nav_admin_alumnos:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,new AsignarIntegrantes()).commit();
-                        break;*/
                 }
                 drawer.closeDrawer(GravityCompat.START);
                 return true;

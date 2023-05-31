@@ -14,16 +14,20 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface MyApiService {
 
     @GET("AsesoresInternos")
     public Call<List<Asesor>> getAsesores();
 
-    @POST("Dictamen")
-    public Call<Dictamen> getDictamen(@Body CorreoInstitucional correoInstitucional);
+    @GET
+    public Call<Dictamen> getDictamen(@Url String url);
+    @PUT("api/Dictamen")
+    public Call<Dictamen> sendDictamen(@Body Dictamen dictamen);
 
     @GET("Grupos")
     public Call<List<Grupo>> getGrupos();

@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.resitecapp.R;
+import com.example.resitecapp.controller.DictamenController;
+import com.example.resitecapp.interfaces.CallbackSimple;
 import com.example.resitecapp.objects.Alumno;
 import com.example.resitecapp.objects.AsesorExterno;
 import com.example.resitecapp.objects.Dictamen;
@@ -26,14 +29,6 @@ import com.example.resitecapp.objects.Empresa;
 import com.example.resitecapp.objects.Proyecto;
 
 public class AlumnoDictamen extends AppCompatActivity {
-    /*
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.alumno_dictamen, container, false);
-        return view;
-    }
-*/
     private Dictamen dictamen;
 
     private Alumno alumno;
@@ -100,9 +95,21 @@ public class AlumnoDictamen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                System.out.println("Correo Insitucional: " + dictamen.getAlumno().getCorreoInstitucional());
-                System.out.println("Nombre: " + dictamen.getAlumno().getNombre());
                 dictamen = DictamenSingleton.getInstance().getDictamen();
+
+                DictamenController dictamenController = new DictamenController();
+
+                dictamenController.sendDictamen(dictamen, new CallbackSimple<Dictamen>() {
+                    @Override
+                    public void onSuccess(Dictamen callback) {
+                        Toast.makeText(AlumnoDictamen.this, "Informacion guardada correctamente", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(String mensaje) {
+                        Toast.makeText(AlumnoDictamen.this, mensaje, Toast.LENGTH_SHORT).show();
+                    }
+                });
 
                 onBackPressed();
             }

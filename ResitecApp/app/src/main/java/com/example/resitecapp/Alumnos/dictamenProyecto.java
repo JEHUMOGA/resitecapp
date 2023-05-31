@@ -57,15 +57,23 @@ public class dictamenProyecto extends Fragment {
 
     public void obtenerDictamen(){
         DictamenController dictamenController = new DictamenController();
-        CorreoInstitucional correoInstitucional = new CorreoInstitucional("17171436@itculiacan.edu.mx");
-
-        dictamenController.getDictamen(correoInstitucional, new CallbackSimple<Dictamen>() {
+        Bundle args = getArguments();
+        String correo = "";
+        if (args != null) {
+            correo = args.getString("correo");
+        }
+        dictamenController.getDictamen(correo, new CallbackSimple<Dictamen>() {
             @Override
             public void onSuccess(Dictamen callback) {
-                //dictamen = callback;
-                //asignaDictamen(callback);
                 FragmentManager fragmentManager = getChildFragmentManager();
-                DictamenSingleton.getInstance().setDictamen(callback);
+                Dictamen response = null;
+                if(callback != null){
+                    DictamenSingleton.getInstance().setDictamen(callback);
+                }
+                else {
+                    btnAction.setVisibility(View.GONE);
+                }
+
                 adapter = new TabAdapter(fragmentManager, getLifecycle(), callback);
                 viewPager2.setAdapter(adapter);
 
@@ -110,7 +118,6 @@ public class dictamenProyecto extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                System.out.println("Selecciona tab");
 
                 viewPager2.setCurrentItem(tab.getPosition());
             }

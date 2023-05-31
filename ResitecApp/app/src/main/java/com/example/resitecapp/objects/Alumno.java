@@ -1,31 +1,31 @@
 package com.example.resitecapp.objects;
 
 public class Alumno {
-    private String correo;
     private String nombre;
-    private String numerodecontrol;
-    private String apePat;
-    private String apeMat;
-    private String fechaNacimiento;
-    private String domicilioCalle;
-    private String domicilioColonia;
-    private String domicilioCp;
+    private int numerodecontrol;
+    private String ape_pat;
+    private String ape_mat;
+    private String fecha_nacimiento;
+    private String domicilio_calle;
+    private String domicilio_colonia;
+    private int domicilio_cp;
     private String ciudad;
     private String pais;
-    private String nss;
-    private String tipoSeguro;
+    private int nss;
+    private String tipo_seguro;
     private String sexo;
-    private String correoPersonal;
-    private String telefonoPersonal;
-    private String telefonoCasa;
-    private String correoInstitucional;
+    private String correo_personal;
+    private String telefono_personal;
+    private String telefono_casa;
+    private String correo_institucional;
+    private int carrera_id;
 
-    public String getCorreo() {
-        return correo;
+    public int getCarrera_id() {
+        return carrera_id;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setCarrera_id(int carrera_id) {
+        this.carrera_id = carrera_id;
     }
 
     public String getNombre() {
@@ -36,60 +36,60 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public String getNumerodecontrol() {
+    public int getNumerodecontrol() {
         return numerodecontrol;
     }
 
-    public void setNumerodecontrol(String numerodecontrol) {
+    public void setNumerodecontrol(int numerodecontrol) {
         this.numerodecontrol = numerodecontrol;
     }
 
     public String getApePat() {
-        return apePat;
+        return ape_pat;
     }
 
     public void setApePat(String apePat) {
-        this.apePat = apePat;
+        this.ape_pat = apePat;
     }
 
     public String getApeMat() {
-        return apeMat;
+        return ape_mat;
     }
 
     public void setApeMat(String apeMat) {
-        this.apeMat = apeMat;
+        this.ape_mat = apeMat;
     }
 
     public String getFechaNacimiento() {
-        return fechaNacimiento;
+        return fecha_nacimiento;
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha_nacimiento = fechaNacimiento;
     }
 
     public String getDomicilioCalle() {
-        return domicilioCalle;
+        return domicilio_calle;
     }
 
     public void setDomicilioCalle(String domicilioCalle) {
-        this.domicilioCalle = domicilioCalle;
+        this.domicilio_calle = domicilioCalle;
     }
 
     public String getDomicilioColonia() {
-        return domicilioColonia;
+        return domicilio_colonia;
     }
 
     public void setDomicilioColonia(String domicilioColonia) {
-        this.domicilioColonia = domicilioColonia;
+        this.domicilio_colonia = domicilioColonia;
     }
 
-    public String getDomicilioCp() {
-        return domicilioCp;
+    public int getDomicilioCp() {
+        return domicilio_cp;
     }
 
-    public void setDomicilioCp(String domicilioCp) {
-        this.domicilioCp = domicilioCp;
+    public void setDomicilioCp(int domicilioCp) {
+        this.domicilio_cp = domicilioCp;
     }
 
     public String getCiudad() {
@@ -108,20 +108,20 @@ public class Alumno {
         this.pais = pais;
     }
 
-    public String getNss() {
+    public int getNss() {
         return nss;
     }
 
-    public void setNss(String nss) {
+    public void setNss(int nss) {
         this.nss = nss;
     }
 
     public String getTipoSeguro() {
-        return tipoSeguro;
+        return tipo_seguro;
     }
 
     public void setTipoSeguro(String tipoSeguro) {
-        this.tipoSeguro = tipoSeguro;
+        this.tipo_seguro = tipoSeguro;
     }
 
     public String getSexo() {
@@ -133,34 +133,34 @@ public class Alumno {
     }
 
     public String getCorreoPersonal() {
-        return correoPersonal;
+        return correo_personal;
     }
 
     public void setCorreoPersonal(String correoPersonal) {
-        this.correoPersonal = correoPersonal;
+        this.correo_personal = correoPersonal;
     }
 
     public String getTelefonoPersonal() {
-        return telefonoPersonal;
+        return telefono_personal;
     }
 
     public void setTelefonoPersonal(String telefonoPersonal) {
-        this.telefonoPersonal = telefonoPersonal;
+        this.telefono_personal = telefonoPersonal;
     }
 
     public String getTelefonoCasa() {
-        return telefonoCasa;
+        return telefono_casa;
     }
 
     public void setTelefonoCasa(String telefonoCasa) {
-        this.telefonoCasa = telefonoCasa;
+        this.telefono_casa = telefonoCasa;
     }
 
     public String getCorreoInstitucional() {
-        return correoInstitucional;
+        return correo_institucional;
     }
 
     public void setCorreoInstitucional(String correoInstitucional) {
-        this.correoInstitucional = correoInstitucional;
+        this.correo_institucional = correoInstitucional;
     }
 }

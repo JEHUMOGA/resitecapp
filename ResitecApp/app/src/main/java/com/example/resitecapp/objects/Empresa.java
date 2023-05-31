@@ -1,22 +1,22 @@
 package com.example.resitecapp.objects;
 
 public class Empresa {
-    private  String idEmpresa;
+    private  int id;
     private String lugar;
     private String rfc;
     private String giro;
     private String domicilio;
-    private String Colonia;
-    private String codigoPostal;
+    private String colonia;
+    private String cp;
     private String ciudad;
     private String fax;
     private String telefono;
-    private String telefonoExtension;
-    private String nombretitular;
-    private String puestotitular;
+    private String telefono_extension;
+    private String nombre_titular;
+    private String puesto_titular;
 
-    public String getIdEmpresa() {
-        return idEmpresa;
+    public int getIdEmpresa() {
+        return id;
     }
     public String getLugar() {
         return lugar;
@@ -51,19 +51,19 @@ public class Empresa {
     }
 
     public String getColonia() {
-        return Colonia;
+        return colonia;
     }
 
     public void setColonia(String colonia) {
-        Colonia = colonia;
+        this.colonia = colonia;
     }
 
     public String getCodigoPostal() {
-        return codigoPostal;
+        return cp;
     }
 
     public void setCodigoPostal(String codigoPostal) {
-        this.codigoPostal = codigoPostal;
+        this.cp = codigoPostal;
     }
 
     public String getCiudad() {
@@ -91,26 +91,26 @@ public class Empresa {
     }
 
     public String getTelefonoExtension() {
-        return telefonoExtension;
+        return telefono_extension;
     }
 
     public void setTelefonoExtension(String telefonoExtension) {
-        this.telefonoExtension = telefonoExtension;
+        this.telefono_extension = telefonoExtension;
     }
 
     public String getNombreTitular() {
-        return nombretitular;
+        return nombre_titular;
     }
 
     public void setNombreTitular(String nombreTitular) {
-        this.nombretitular = nombreTitular;
+        this.nombre_titular = nombreTitular;
     }
 
     public String getPuestoTitular() {
-        return puestotitular;
+        return puesto_titular;
     }
 
     public void setPuestoTitular(String puestoTitular) {
-        this.puestotitular = puestoTitular;
+        this.puesto_titular = puestoTitular;
     }
 }

@@ -67,7 +67,6 @@ public class ListaAsesorAdapter extends  RecyclerView.Adapter<ListaAsesorAdapter
                             return;
                         }
                         Asesor asesor = asesores.get(position);
-                        //btnAdd.setBackgroundResource(R.drawable.ic_add1);
                         listener.onItemClick(asesor);
 
                     }
@@ -75,7 +74,6 @@ public class ListaAsesorAdapter extends  RecyclerView.Adapter<ListaAsesorAdapter
             });
         }
         void bind(Asesor asesor){
-            System.out.println("Entro en bindData");
             txtNombreAsesor.setText(asesor.getNombre());
             txtCorreo.setText(asesor.getCorreo());
         }

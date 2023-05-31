@@ -83,14 +83,6 @@
                 android:textSize="20sp"
                 android:layout_marginVertical="10dp"/>
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/txtFax"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Fax de la empresa"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_marginVertical="10dp"/>
-            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txtTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

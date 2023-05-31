@@ -76,7 +76,7 @@ public class ListaAlumnoAdapter extends RecyclerView.Adapter<ListaAlumnoAdapter.
         }
         public void bind(Alumno alumno){
             txtNombreAlumno.setText(alumno.getNombre());
-            txtCorreoAlumno.setText(alumno.getCorreo());
+            txtCorreoAlumno.setText(alumno.getCorreoInstitucional());
 
         }
     }

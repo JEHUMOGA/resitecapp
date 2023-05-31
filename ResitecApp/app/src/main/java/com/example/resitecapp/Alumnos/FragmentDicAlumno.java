@@ -37,8 +37,8 @@ public class FragmentDicAlumno extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if(DictamenSingleton.getInstance().getDictamen() == null) {
-            this.alumno = new Alumno();
-        }else {
+            this.alumno =null;
+        }else{
             this.alumno = DictamenSingleton.getInstance().getDictamen().getAlumno();
         }
         titulo = view.findViewById(R.id.titulo);
@@ -77,7 +77,7 @@ public class FragmentDicAlumno extends Fragment {
         String contenido = null;
 
         contenido = "Número de control: ";
-        contenido += (alumno.getNumerodecontrol() == null || alumno.getNumerodecontrol().equals(""))?  mensajeVacio:  alumno.getNumerodecontrol();
+        contenido += (alumno.getNumerodecontrol() == 0 )?  mensajeVacio:  alumno.getNumerodecontrol();
         txtNumeroControl.setText(contenido);
 
         contenido = "Nombre: ";
@@ -99,7 +99,7 @@ public class FragmentDicAlumno extends Fragment {
         contenido += (alumno.getDomicilioColonia() == null || alumno.getDomicilioColonia().equals(""))? mensajeVacio:  alumno.getDomicilioColonia();
         txtColonia.setText(contenido);
         contenido = "Codigo Postal: ";
-        contenido += (alumno.getDomicilioCp() == null || alumno.getDomicilioCp().equals(""))? mensajeVacio:  alumno.getDomicilioCp();
+        contenido += (alumno.getDomicilioCp() == 0 )? mensajeVacio:  alumno.getDomicilioCp();
         txtCodigoPostal.setText(contenido);
         contenido = "Ciudad: ";
         contenido += (alumno.getCiudad() == null || alumno.getCiudad().equals(""))? mensajeVacio:  alumno.getCiudad();
@@ -111,7 +111,7 @@ public class FragmentDicAlumno extends Fragment {
         contenido += (alumno.getPais() == null || alumno.getPais().equals(""))? mensajeVacio:  alumno.getPais();
         txtPais.setText(contenido);
         contenido = "Número de seguro social: ";
-        contenido += (alumno.getNss() == null || alumno.getNss().equals(""))? mensajeVacio:  alumno.getNss();
+        contenido += (alumno.getNss() == 0 )? mensajeVacio:  alumno.getNss();
         txtNss.setText(contenido);
         contenido = "Tipo de Seguro: ";
         contenido += (alumno.getTipoSeguro() == null || alumno.getTipoSeguro().equals(""))? mensajeVacio:  alumno.getTipoSeguro();
@@ -145,8 +145,6 @@ public class FragmentDicAlumno extends Fragment {
         if(DictamenSingleton.getInstance().getDictamen() == null)
             return;
         this.alumno = DictamenSingleton.getInstance().getDictamen().getAlumno();
-        System.out.println("Nombre: " + alumno.getNombre());
-        System.out.println("Fecha de Nacimiento" + alumno.getFechaNacimiento());
         MostrarDatos();
     }
 

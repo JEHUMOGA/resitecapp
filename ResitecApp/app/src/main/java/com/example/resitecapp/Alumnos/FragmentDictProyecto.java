@@ -71,8 +71,8 @@ public class FragmentDictProyecto extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if(DictamenSingleton.getInstance().getDictamen() == null) {
-            this.proyecto = new Proyecto();
-        }else {
+            this.proyecto = null;
+        }else{
             this.proyecto = DictamenSingleton.getInstance().getDictamen().getProyecto();
         }
         txtTitulo = view.findViewById(R.id.txtTitulo);
@@ -82,8 +82,6 @@ public class FragmentDictProyecto extends Fragment{
         titulo = view.findViewById(R.id.titulo);
         info = view.findViewById(R.id.info);
         MostrarDatos();
-        /*fechaNacimiento = view.findViewById(R.id.txtNacimientoEstudiante);
-        fechaNacimiento.setOnClickListener(this);*/
     }
 
     @Override

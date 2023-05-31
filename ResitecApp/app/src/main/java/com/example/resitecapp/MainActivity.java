@@ -1,6 +1,7 @@
 package com.example.resitecapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,11 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.resitecapp.Alumnos.alumnoActivity;
+import com.example.resitecapp.Alumnos.dictamenProyecto;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-//import retrofit2.Response;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -30,15 +30,20 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         editTextCorreo=findViewById(R.id.editTextCorreo);
-        editTextPassword=findViewById(R.id.editTextPassword);
         contenedorCorreo = findViewById(R.id.contendedorCorreo);
-        contenedorPassword = findViewById(R.id.contendedorPassword);
         btnIngresar = findViewById(R.id.btnIngresar);
-        //mostrarAlumnos();
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String correo = editTextCorreo.getText().toString().trim();
+                if(correo.isEmpty()){
+                    editTextCorreo.setError("Campo obligatorio");
+                    editTextCorreo.requestFocus();
+                    return;
+                }
+
                 Intent usuario = new Intent(MainActivity.this, alumnoActivity.class);
+                usuario.putExtra("correo", correo);
                 startActivity(usuario);
 
             }

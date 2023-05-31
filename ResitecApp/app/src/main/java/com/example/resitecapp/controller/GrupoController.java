@@ -28,9 +28,6 @@ public class GrupoController {
 
     public void crearGrupo(String asesor, List<Alumno> alumnos, CallbackLista callback){
 
-        System.out.println("Nombre asesor: " + asesor + " Cantidad de alumnos: " + alumnos.size());
-
-        System.out.println("Crear grupo");
         enviarGrupo.setAsesor(asesor);
         enviarGrupo.setAlumnos(alumnos);
         Retrofit retrofit=new Retrofit.Builder().baseUrl(url.getUrl())
@@ -44,7 +41,6 @@ public class GrupoController {
                     mensaje= "Grupo creado correctamente";
                 else
                     mensaje="El grupo no se pudo crear " + response.message();
-                //callback();
             }
 
             @Override
@@ -56,7 +52,6 @@ public class GrupoController {
     }
 
     public void getGrupo(int id, CallbackSimple callback){
-        System.out.println("Obtener grupo: " + id);
         Url url = new Url();
         Retrofit retrofit=new Retrofit.Builder().baseUrl(url.getUrl())
                 .addConverterFactory(GsonConverterFactory.create()).build();
@@ -74,17 +69,14 @@ public class GrupoController {
                     }
 
                     Grupo grup = response.body();
-                    //Grupo grupo = //grup.get(0);
                     callback.onSuccess(grup);
                 }catch (Exception ex){
-                    //Toast.makeText(DetalleGrupoActivity.this, ex.getMessage(), Toast.LENGTH_SHORT).show();
                     callback.onFailure(ex.getMessage());
                 }
             }
 
             @Override
             public void onFailure(Call<Grupo> call, Throwable t) {
-                //Toast.makeText(DetalleGrupoActivity.this, "Error de conexion " + t.toString(), Toast.LENGTH_SHORT).show();
                 callback.onFailure("Error de conexion " + t.toString());
             }
         });

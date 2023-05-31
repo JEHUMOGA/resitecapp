@@ -36,15 +36,6 @@ public class AdministradorActivity extends Fragment implements RecyclerViewPosit
     private Button btnAgregar;
 
     ViewGroup container;
-/*
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_administrador);
-        grupos = new ArrayList<Grupo>();
-        init();
-    }
-*/
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -120,10 +111,6 @@ public class AdministradorActivity extends Fragment implements RecyclerViewPosit
     public void onItemClick(int position) {
         int id = grupos.get(position).getIdProyecto();
         System.out.println("ID del proyecto: " + id);
-        /*Intent intent = new Intent(AdministradorActivity.this.getContext(), DetalleGrupoActivity.class);
-        intent.putExtra("id", id);
-        //intent.putExtra("")
-        startActivity(intent);*/
 
         DetalleGrupoActivity detalleGrupoFragment = new DetalleGrupoActivity();
         Bundle args = new Bundle();
